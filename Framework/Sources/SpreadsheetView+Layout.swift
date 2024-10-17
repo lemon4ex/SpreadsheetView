@@ -297,7 +297,7 @@ extension SpreadsheetView {
 
         if frozenColumns > 0 {
             tableView.state.frame.origin.x = columnHeaderView.state.frame.width - intercellSpacing.width
-            tableView.state.frame.size.width = (frame.width - horizontalInset) - (columnHeaderView.state.frame.width - intercellSpacing.width)
+            tableView.state.frame.size.width = max(0, (frame.width - horizontalInset) - (columnHeaderView.state.frame.width - intercellSpacing.width))
 
             if circularScrollingOptions.headerStyle != .rowHeaderStartsFirstColumn {
                 rowHeaderView.state.frame.origin.x = tableView.state.frame.origin.x
@@ -308,7 +308,7 @@ extension SpreadsheetView {
         }
         if frozenRows > 0 {
             tableView.state.frame.origin.y = rowHeaderView.state.frame.height - intercellSpacing.height
-            tableView.state.frame.size.height = (frame.height - verticalInset) - (rowHeaderView.state.frame.height - intercellSpacing.height)
+            tableView.state.frame.size.height = max(0, (frame.height - verticalInset) - (rowHeaderView.state.frame.height - intercellSpacing.height))
 
             if circularScrollingOptions.headerStyle != .columnHeaderStartsFirstRow {
                 columnHeaderView.state.frame.origin.y = tableView.state.frame.origin.y
